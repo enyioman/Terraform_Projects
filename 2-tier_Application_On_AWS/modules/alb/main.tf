@@ -1,13 +1,13 @@
 # create application load balancer
 resource "aws_lb" "application_load_balancer" {
-  name               = "${var.project_name}-alb"
-  internal           = false
-  load_balancer_type = "application"
-  security_groups    = [var.alb_sg_id]
-  subnets            = [var.pub_sub_1a_id,var.pub_sub_2b_id]
+  name                       = "${var.project_name}-alb"
+  internal                   = false
+  load_balancer_type         = "application"
+  security_groups            = [var.alb_sg_id]
+  subnets                    = [var.pub_sub_1a_id, var.pub_sub_2b_id]
   enable_deletion_protection = false
 
-  tags   = {
+  tags = {
     Name = "${var.project_name}-alb"
   }
 }
@@ -42,7 +42,7 @@ resource "aws_lb_listener" "alb_http_listener" {
   protocol          = "HTTP"
 
   default_action {
-    type = "forward"
+    type             = "forward"
     target_group_arn = aws_lb_target_group.alb_target_group.arn
   }
 }

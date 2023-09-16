@@ -20,8 +20,8 @@ resource "aws_autoscaling_group" "asg_name" {
   desired_capacity          = var.desired_cap
   health_check_grace_period = 300
   health_check_type         = var.asg_health_check_type #"ELB" or default EC2
-  vpc_zone_identifier = [var.pri_sub_3a_id,var.pri_sub_4b_id]
-  target_group_arns   = [var.tg_arn] #var.target_group_arns
+  vpc_zone_identifier       = [var.pri_sub_3a_id, var.pri_sub_4b_id]
+  target_group_arns         = [var.tg_arn] #var.target_group_arns
 
   enabled_metrics = [
     "GroupMinSize",
@@ -35,7 +35,7 @@ resource "aws_autoscaling_group" "asg_name" {
 
   launch_template {
     id      = aws_launch_template.lt_name.id
-    version = aws_launch_template.lt_name.latest_version 
+    version = aws_launch_template.lt_name.latest_version
   }
 }
 

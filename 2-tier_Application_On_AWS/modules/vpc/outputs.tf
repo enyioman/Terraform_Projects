@@ -29,9 +29,9 @@ output "pri_sub_5a_id" {
 }
 
 output "pri_sub_6b_id" {
-    value = aws_subnet.pri_sub_6b.id 
+  value = aws_subnet.pri_sub_6b.id
 }
 
 output "igw_id" {
-    value = aws_internet_gateway.internet_gateway
+  value = aws_internet_gateway.internet_gateway
 }
